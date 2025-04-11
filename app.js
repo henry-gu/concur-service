@@ -20,6 +20,11 @@ const authMiddleware = basicAuth({
   }
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Server is running' });
+});
+
 // Test connection endpoint
 app.get('/system/v1.0/testconnection', authMiddleware, (req, res) => {
   res.status(200).json({ status: 'success' });

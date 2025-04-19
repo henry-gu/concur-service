@@ -25,6 +25,13 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'Server is running' });
 });
 
+
+app.get('/robots.txt', function(req, res){
+  res.type('text/plain');
+  res.send('User-agent: *\nDisallow: /');
+});
+
+
 // Test connection endpoint
 app.get('/system/v1.0/testconnection', authMiddleware, (req, res) => {
   res.status(200).json({ status: 'success' });
@@ -36,7 +43,7 @@ app.get('/leu/auth', (req, res) => {
     <!DOCTYPE html>
     <html>
     <head>
-      <title>LEU Page</title>
+      <title>LEU Auth</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body class="bg-light">
@@ -85,7 +92,7 @@ app.get('/leu/v4/form', (req, res) => {
     <!DOCTYPE html>
     <html>
     <head>
-      <title>Form Get</title>
+      <title>LEU Form Get</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body class="bg-light">

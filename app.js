@@ -78,6 +78,55 @@ app.get('/leu', (req, res) => {
   res.send(html);
 });
 
+
+// Leu endpoint - shows query params and form
+app.get('/form/v1.0/get', (req, res) => {
+  let html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Form Get</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card mb-4">
+              <div class="card-header bg-secondary text-white">
+                <h1 class="card-title">Query Parameters</h1>
+              </div>
+              <div class="card-body">
+                <pre class="bg-light p-3">${JSON.stringify(req.query, null, 2)}</pre>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header bg-secondary text-white">
+                <h2 class="card-title">Options Form</h2>
+              </div>
+              <div class="card-body">
+                <form method="GET" action="/leu" class="mb-3">
+                  <div class="mb-3">
+                    <select name="option" class="form-select">
+                      <option value="option1">Option 1</option>
+                      <option value="option2">Option 2</option>
+                      <option value="option3">Option 3</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Confirm</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+  res.send(html);
+});
+
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

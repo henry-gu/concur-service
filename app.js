@@ -31,7 +31,7 @@ app.get('/system/v1.0/testconnection', authMiddleware, (req, res) => {
 });
 
 // Leu endpoint - shows query params and form
-app.get('/leu', (req, res) => {
+app.get('/launchexternalurl/auth', (req, res) => {
   let html = `
     <!DOCTYPE html>
     <html>
@@ -80,7 +80,7 @@ app.get('/leu', (req, res) => {
 
 
 // Leu endpoint - shows query params and form
-app.get('/form/v1.0/get', (req, res) => {
+app.get('/launchexternalurl/v4/form', (req, res) => {
   let html = `
     <!DOCTYPE html>
     <html>
